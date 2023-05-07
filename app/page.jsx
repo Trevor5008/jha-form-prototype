@@ -170,7 +170,7 @@ export default function Home() {
                variant="h3"
                marginBottom={1}
             >
-               A. Are Permits Required? Are they
+               <span className="font-bold" >A.</span> Are Permits Required? Are they
                displayed and properly signed by
                the PSC/PSA?
             </Typography>
@@ -239,6 +239,27 @@ export default function Home() {
             </Box>
          </Container>
          {/* Section B */}
+         <Container className="mt-4 px-0">
+            <Typography
+               variant="h3"
+               marginBottom={1}
+            >
+               <span className="font-bold" >B.</span> Atmospheric Monitoring
+            </Typography>
+            <Box display="flex flex-column">
+               {sectionBOpts.map(
+                  (option, idx) => {
+                     return (
+                        <SectionBOptions
+                           key={idx}
+                           option={option}
+                           column={2}
+                        />
+                     )
+                  }
+               )}
+            </Box>
+         </Container>
       </main>
    )
 }

@@ -30,7 +30,7 @@ export default function CheckOptions({ option }) {
                }}
             />
             <FormControlLabel
-               control={<Checkbox />}
+               control={<Checkbox defaultChecked />}
                label="No"
                sx={{
                   visibility:
