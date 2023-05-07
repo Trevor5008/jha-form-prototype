@@ -8,7 +8,7 @@ import {
 
 export default function CheckOptions({ option }) {
    return (
-      <FormGroup className="flex flex-nowrap flex-row items-center justify-between">
+      <FormGroup className="flex flex-nowrap items-center justify-between" sx={{ flexDirection: 'row'}}>
          <Typography
             variant="body1"
             display="flex"
