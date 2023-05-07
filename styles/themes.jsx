@@ -17,16 +17,13 @@ export const theme = createTheme({
          }
       },
       h3: {
-         fontSize: 14,
+         fontSize: 16,
          '@media (minWidth: 750px)': {
             fontSize: 20
          }
       },
       h4: {
-        fontSize: 17
-      },
-      body1: {
-         textAlign: 'center'
+        fontSize: 14
       }
    }
 })

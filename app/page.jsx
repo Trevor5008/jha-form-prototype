@@ -25,14 +25,14 @@ export default function Home() {
          {/* Title */}
          <Typography
             variant="h1"
-            className="my-3"
+            className="my-3 text-center"
          >
             Daily Job Hazard Analysis
          </Typography>
          {/* Description */}
          <Typography
             variant="body1"
-            className="block"
+            className="block text-center"
          >
             This JHA is valid only for the work
             and date specified. This JHA shall be
@@ -133,7 +133,7 @@ export default function Home() {
             <FormControl
                sx={{
                   marginLeft: {
-                     sm: '.5rem'
+                     sm: ".5rem"
                   },
                   width: {
                      xs: "100%",
@@ -152,9 +152,92 @@ export default function Home() {
             </FormControl>
          </Container>
          {/* 3rd Row | Project Description*/}
-
+         <Container className="p-0 flex">
+            <FormControl fullWidth>
+               <TextField
+                  id="outlined-multiline-flexible"
+                  label="Description of work to be performed:"
+                  multiline
+                  rows={4}
+                  required
+               />
+               {/* <FormHelperText>Describe work to be performed</FormHelperText> */}
+            </FormControl>
+         </Container>
          {/* Section A */}
-
+         <Container className="mt-6 sm:px-0">
+            <Typography
+               variant="h3"
+               marginBottom={1}
+            >
+               A. Are Permits Required? Are they
+               displayed and properly signed by
+               the PSC/PSA?
+            </Typography>
+            <Box
+               sx={{
+                  display: "flex",
+                  flexDirection: {
+                     xs: "column",
+                     sm: "row"
+                  }
+               }}
+            >
+               <Box
+                  sx={{
+                     width: {
+                        sm: "48%"
+                     },
+                     marginLeft: {
+                        sm: 0
+                     }
+                  }}
+               >
+                  {sectionAOpts
+                     .slice(0, 3)
+                     .map((option, idx) => {
+                        return (
+                           <SectionAOptions
+                              key={idx}
+                              option={option}
+                              column={1}
+                           />
+                        )
+                     })}
+               </Box>
+               <Box
+                  sx={{
+                     width: { sm: "50%" },
+                     marginLeft: { sm: 2, md: 4 }
+                  }}
+               >
+                  {sectionAOpts
+                     .slice(3)
+                     .map((option, idx) => {
+                        return (
+                           <SectionAOptions
+                              key={idx}
+                              option={option}
+                              column={2}
+                           />
+                        )
+                     })}
+                  <Box width="100%">
+                     <TextField
+                        label="Other"
+                        variant="standard"
+                        fullWidth
+                        sx={{
+                           "& .MuiFormLabel-root":
+                              {
+                                 color: "black"
+                              }
+                        }}
+                     />
+                  </Box>
+               </Box>
+            </Box>
+         </Container>
          {/* Section B */}
       </main>
    )
