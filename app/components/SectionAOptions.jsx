@@ -6,20 +6,12 @@ import {
    Box
 } from "@mui/material"
 
-export default function CheckOptions({
-   option,
-   column
-}) {
+export default function CheckOptions({ option }) {
    return (
-      <FormGroup
-         className="flex flex-row flex-nowrap items-center justify-between"
-         sx={{ flexDirection: "row" }}
-      >
+      <FormGroup className="flex flex-nowrap flex-row items-center justify-between">
          <Typography
             variant="body1"
             display="flex"
-            position="absolute"
-            left={column === 2 && "50%"}
          >
             {option}
          </Typography>
@@ -28,18 +20,19 @@ export default function CheckOptions({
                control={<Checkbox />}
                label="Yes"
                sx={{
-                  position: "relative",
-                  marginLeft: "11rem",
                   visibility:
                      option === "Other" &&
-                     "hidden"
+                     "hidden",
+                  marginRight: {
+                     xs: '14px',
+                     sm: '10px'
+                  }
                }}
             />
             <FormControlLabel
                control={<Checkbox />}
                label="No"
                sx={{
-                  position: "relative",
                   visibility:
                      option === "Other" &&
                      "hidden"

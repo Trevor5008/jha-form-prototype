@@ -24,7 +24,10 @@ export default function SelectInput({
                const idx = person.indexOf("-")
                const val = person.slice(idx + 2)
                return (
-                  <MenuItem key={idx} value={val}>
+                  <MenuItem
+                     key={idx}
+                     value={val}
+                  >
                      {person}
                   </MenuItem>
                )
