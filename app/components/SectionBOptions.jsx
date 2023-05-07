@@ -18,8 +18,11 @@ export default function SelectBOptions({
 
    return (
       <FormControl
-         className="flex flex-row justify-between items-center mb-2"
+         className="flex justify-between items-center mb-2"
          fullWidth
+         sx={{
+            flexDirection: 'row'
+         }}
       >
          <FormLabel id={`${option} radio group`} className="text-black">
             {option}
@@ -29,7 +32,10 @@ export default function SelectBOptions({
             name={`${option} radio group`}
             value={value}
             onChange={handleChange}
-            className="inline-block absolute left-[40%]"
+            className="absolute left-[40%]"
+            sx={{
+               display: 'inline-block'
+            }}
          >
             <FormControlLabel
                value={true}

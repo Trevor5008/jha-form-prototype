@@ -1,21 +1,21 @@
 "use client"
-
 import "./globals.css"
 import { Inter } from "next/font/google"
-import { ThemeProvider } from "@mui/material"
+import { ThemeProvider } from "@emotion/react"
 import { theme } from "@/styles/themes"
+import CssBaseline from "@mui/material/CssBaseline"
 
 const inter = Inter({ subsets: ["latin"] })
-
-export const metadata = {
-   title: "JHA",
-   description: "Job Hazard Analysis Form"
-}
 
 export default function RootLayout({ children }) {
    return (
       <html lang="en">
+         <head>
+            <title>JHA</title>
+
+         </head>
          <ThemeProvider theme={theme}>
+            <CssBaseline />
             <body className={inter.className}>
                {children}
             </body>

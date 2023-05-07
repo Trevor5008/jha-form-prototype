@@ -21,163 +21,177 @@ import SectionBOptions from "./components/SectionBOptions"
 
 export default function Home() {
    return (
-      <main className="mx-8">
-         {/* Title */}
-         <Typography
-            variant="h1"
-            className="text-center my-3"
-         >
-            Daily Job Hazard Analysis
-         </Typography>
-         {/* Description */}
-         <Typography
-            variant="body1"
-            className="block"
-         >
-            This JHA is valid only for the work
-            and date specified. This JHA shall be
-            posted at the immediate work area
-            while the work is ongoing. If the
-            noted conditions change, the JHA shall
-            be re-evaluated to incorporate changes
-            and reissued immediately. Any
-            emergency or incident automatically
-            invalidates this JHA. When this JHA
-            expires, it must be returned to the
-            PSC/PSA for record purposes
-         </Typography>
-         {/* 1st Row */}
-         <Container className="flex p-0 mt-5">
-            {/* Project Name Input */}
-            <FormControl
-               className="mr-2 w-1/2"
-               required
-            >
-               <SelectInput
-                  name="Project Name and Number"
-                  data={projectData}
-               />
-            </FormControl>
-            {/* DateTime Input */}
-            <FormControl
-               className="ml-2 w-1/2"
-               required
-            >
-               <DateTimeInput />
-            </FormControl>
-         </Container>
-         {/* 2nd Row | Company Name, Supervisor */}
-         <Container className="flex p-0 mt-4">
-            {/* Company Name */}
-            <FormControl
-               className="mr-2 w-1/2"
-               required
-            >
-               <SelectInput
-                  name="Company Name"
-                  data={companyNames}
-               />
-            </FormControl>
-            {/* Supervisor */}
-            <FormControl
-               className="ml-2 w-1/2"
-               required
-            >
-               <SelectInput
-                  name="Supervisor"
-                  data={supervisors}
-               />
-            </FormControl>
-         </Container>
-         {/* 3rd Row | Project Description*/}
-         <Container className="flex p-0 mt-4">
-            <FormControl fullWidth>
-               <TextField
-                  id="outlined-multiline-flexible"
-                  label="Description of work to be performed:"
-                  multiline
-                  rows={4}
-                  required
-               />
-               {/* <FormHelperText>Describe work to be performed</FormHelperText> */}
-            </FormControl>
-         </Container>
-         {/* Section A */}
-         <Container className="mt-4">
+         <main className="mx-8">
+            {/* Title */}
             <Typography
-               variant="h3"
-               marginBottom={1}
+               variant="h1"
+               className="text-center my-3"
             >
-               A. Are Permits Required? Are they
-               displayed and properly signed by
-               the PSC/PSA?
+               Daily Job Hazard Analysis
             </Typography>
-            <Box display="flex">
-               <Box
-                  width="48%"
-                  marginLeft={2}
+            {/* Description */}
+            <Typography
+               variant="body1"
+               className="block"
+            >
+               This JHA is valid only for the work
+               and date specified. This JHA shall
+               be posted at the immediate work
+               area while the work is ongoing. If
+               the noted conditions change, the
+               JHA shall be re-evaluated to
+               incorporate changes and reissued
+               immediately. Any emergency or
+               incident automatically invalidates
+               this JHA. When this JHA expires, it
+               must be returned to the PSC/PSA for
+               record purposes
+            </Typography>
+            {/* 1st Row */}
+            <Container className="p-0 mt-5" sx={{ display: 'flex' }}>
+               {/* Project Name Input */}
+               <FormControl
+                  className="w-1/2"
+                  sx={{
+                     marginRight: '.5rem'
+                  }}
+                  required
                >
-                  {sectionAOpts
-                     .slice(0, 3)
-                     .map((option, idx) => {
-                        return (
-                           <SectionAOptions
-                              key={idx}
-                              option={option}
-                              column={1}
-                           />
-                        )
-                     })}
+                  <SelectInput
+                     name="Project Name and Number"
+                     data={projectData}
+                  />
+               </FormControl>
+               {/* DateTime Input */}
+               <FormControl
+                  className="w-1/2"
+                  sx={{
+                     marginLeft: '.5rem'
+                  }}
+                  required
+               >
+                  <DateTimeInput />
+               </FormControl>
+            </Container>
+            {/* 2nd Row | Company Name, Supervisor */}
+            <Container className="p-0 mt-4" sx={{ display: 'flex' }}>
+               {/* Company Name */}
+               <FormControl
+                  className="w-1/2"
+                  sx={{
+                     marginRight: '.5rem'
+                  }}
+                  required
+               >
+                  <SelectInput
+                     name="Company Name"
+                     data={companyNames}
+                  />
+               </FormControl>
+               {/* Supervisor */}
+               <FormControl
+                  className="w-1/2"
+                  sx={{
+                     marginLeft: '.5rem'
+                  }}
+                  required
+               >
+                  <SelectInput
+                     name="Supervisor"
+                     data={supervisors}
+                  />
+               </FormControl>
+            </Container>
+            {/* 3rd Row | Project Description*/}
+            <Container className="flex p-0 mt-4">
+               <FormControl fullWidth>
+                  <TextField
+                     id="outlined-multiline-flexible"
+                     label="Description of work to be performed:"
+                     multiline
+                     rows={4}
+                     required
+                  />
+                  {/* <FormHelperText>Describe work to be performed</FormHelperText> */}
+               </FormControl>
+            </Container>
+            {/* Section A */}
+            <Container className="mt-4">
+               <Typography
+                  variant="h3"
+                  marginBottom={1}
+               >
+                  A. Are Permits Required? Are
+                  they displayed and properly
+                  signed by the PSC/PSA?
+               </Typography>
+               <Box display="flex">
+                  <Box
+                     width="48%"
+                     marginLeft={2}
+                  >
+                     {sectionAOpts
+                        .slice(0, 3)
+                        .map((option, idx) => {
+                           return (
+                              <SectionAOptions
+                                 key={idx}
+                                 option={option}
+                                 column={1}
+                              />
+                           )
+                        })}
+                  </Box>
+                  <Box width="50%">
+                     {sectionAOpts
+                        .slice(3)
+                        .map((option, idx) => {
+                           return (
+                              <SectionAOptions
+                                 key={idx}
+                                 option={option}
+                                 column={2}
+                              />
+                           )
+                        })}
+                     <Box width="100%">
+                        <TextField
+                           label="Other"
+                           variant="standard"
+                           fullWidth
+                           sx={{
+                              "& .MuiFormLabel-root":
+                                 {
+                                    color: "black"
+                                 }
+                           }}
+                        />
+                     </Box>
+                  </Box>
                </Box>
-               <Box width="50%">
-                  {sectionAOpts
-                     .slice(3)
-                     .map((option, idx) => {
+            </Container>
+            {/* Section B */}
+            <Container className="mt-4">
+               <Typography
+                  variant="h3"
+                  marginBottom={1}
+               >
+                  B. Atmospheric Monitoring
+               </Typography>
+               <Box display="flex flex-column">
+                  {sectionBOpts.map(
+                     (option, idx) => {
                         return (
-                           <SectionAOptions
+                           <SectionBOptions
                               key={idx}
                               option={option}
                               column={2}
                            />
                         )
-                     })}
-                  <Box width="100%">
-                     <TextField
-                        label="Other"
-                        variant="standard"
-                        fullWidth
-                        sx={{
-                           '& .MuiFormLabel-root': {
-                              color: 'black'
-                           }
-                        }}
-                     />
-                  </Box>
+                     }
+                  )}
                </Box>
-            </Box>
-         </Container>
-         {/* Section B */}
-         <Container className="mt-4">
-            <Typography
-               variant="h3"
-               marginBottom={1}
-            >
-               B. Atmospheric Monitoring
-            </Typography>
-            <Box display="flex flex-column">
-               {sectionBOpts.map(
-                  (option, idx) => {
-                     return (
-                        <SectionBOptions
-                           key={idx}
-                           option={option}
-                           column={2}
-                        />
-                     )
-                  }
-               )}
-            </Box>
-         </Container>
-      </main>
+            </Container>
+         </main>
    )
 }
