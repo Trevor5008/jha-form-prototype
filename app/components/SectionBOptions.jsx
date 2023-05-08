@@ -6,6 +6,7 @@ import RadioGroup from "@mui/material/RadioGroup"
 import FormControlLabel from "@mui/material/FormControlLabel"
 import FormControl from "@mui/material/FormControl"
 import FormLabel from "@mui/material/FormLabel"
+import CheckIcon from "@mui/icons-material/Check"
 
 export default function SelectBOptions({
    option
@@ -39,12 +40,12 @@ export default function SelectBOptions({
          >
             <FormControlLabel
                value={true}
-               control={<Radio />}
+               control={<Radio checkedIcon={<CheckIcon />}/>}
                label="Yes"
             />
             <FormControlLabel
                value={false}
-               control={<Radio />}
+               control={<Radio checkedIcon={<CheckIcon />}/>}
                label="No"
             />
          </RadioGroup>
