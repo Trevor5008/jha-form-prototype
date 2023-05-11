@@ -7,6 +7,8 @@ import FormControlLabel from "@mui/material/FormControlLabel"
 import FormControl from "@mui/material/FormControl"
 import FormLabel from "@mui/material/FormLabel"
 import CheckIcon from "@mui/icons-material/Check"
+import CheckBoxOutlineBlankOutlinedIcon 
+   from "@mui/icons-material/CheckBoxOutlineBlankOutlined"
 
 export default function SelectBOptions({
    option
@@ -22,10 +24,13 @@ export default function SelectBOptions({
          className="flex justify-between items-center mb-2"
          fullWidth
          sx={{
-            flexDirection: 'row'
+            flexDirection: "row"
          }}
       >
-         <FormLabel id={`${option} radio group`} className="text-black">
+         <FormLabel
+            id={`${option} radio group`}
+            className="text-black"
+         >
             {option}
          </FormLabel>
          <RadioGroup
@@ -35,17 +40,31 @@ export default function SelectBOptions({
             onChange={handleChange}
             className="absolute left-[40%]"
             sx={{
-               display: 'inline-block'
+               display: "inline-block"
             }}
          >
             <FormControlLabel
                value={true}
-               control={<Radio checkedIcon={<CheckIcon />}/>}
+               control={
+                  <Radio
+                     checkedIcon={<CheckIcon />}
+                     icon={
+                        <CheckBoxOutlineBlankOutlinedIcon />
+                     }
+                  />
+               }
                label="Yes"
             />
             <FormControlLabel
                value={false}
-               control={<Radio checkedIcon={<CheckIcon />}/>}
+               control={
+                  <Radio
+                     checkedIcon={<CheckIcon />}
+                     icon={
+                        <CheckBoxOutlineBlankOutlinedIcon />
+                     }
+                  />
+               }
                label="No"
             />
          </RadioGroup>
@@ -60,9 +79,9 @@ export default function SelectBOptions({
                   "Are concentration levels safe?"
                      ? "hidden"
                      : "",
-                '& .MuiFormLabel-root': {
-                    color: 'black'
-                }
+               "& .MuiFormLabel-root": {
+                  color: "black"
+               }
             }}
          />
       </FormControl>

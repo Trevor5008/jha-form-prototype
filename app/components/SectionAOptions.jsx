@@ -1,36 +1,71 @@
+import { useState } from "react"
 import {
-   FormGroup,
+   FormControl,
    FormControlLabel,
-   Checkbox,
-   Typography,
-   Box
+   FormLabel
 } from "@mui/material"
+import RadioGroup from "@mui/material/RadioGroup"
+import Radio from "@mui/material/Radio"
+import CheckIcon from "@mui/icons-material/Check"
+import CheckBoxOutlineBlankOutlinedIcon from "@mui/icons-material/CheckBoxOutlineBlankOutlined"
 
 export default function CheckOptions({ option }) {
+   const [value, setValue] = useState(false)
+
+   const handleChange = (evt) =>
+      setValue(evt.target.value)
+
    return (
-      <FormGroup className="flex flex-nowrap items-center justify-between" sx={{ flexDirection: 'row'}}>
-         <Typography
-            variant="body1"
-            display="flex"
+      <FormControl
+         className="mb-2 flex flex-nowrap items-center justify-between"
+         sx={{ flexDirection: "row" }}
+      >
+         <FormLabel
+            id={`${option} radio group`}
+            className="text-black"
          >
             {option}
-         </Typography>
-         <Box>
+         </FormLabel>
+         <RadioGroup
+            aria-labelledby={`${option} radio group`}
+            name={`${option} radio group`}
+            value={value}
+            onChange={handleChange}
+            sx={{
+               display: "inline-block"
+            }}
+         >
             <FormControlLabel
-               control={<Checkbox />}
+               value={true}
+               control={
+                  <Radio
+                     checkedIcon={<CheckIcon />}
+                     icon={
+                        <CheckBoxOutlineBlankOutlinedIcon />
+                     }
+                  />
+               }
                label="Yes"
                sx={{
                   visibility:
                      option === "Other" &&
                      "hidden",
                   marginRight: {
-                     xs: '14px',
-                     sm: '10px'
+                     xs: "14px",
+                     sm: "10px"
                   }
                }}
             />
             <FormControlLabel
-               control={<Checkbox defaultChecked />}
+               value={false}
+               control={
+                  <Radio
+                     checkedIcon={<CheckIcon />}
+                     icon={
+                        <CheckBoxOutlineBlankOutlinedIcon />
+                     }
+                  />
+               }
                label="No"
                sx={{
                   visibility:
@@ -38,7 +73,7 @@ export default function CheckOptions({ option }) {
                      "hidden"
                }}
             />
-         </Box>
-      </FormGroup>
+         </RadioGroup>
+      </FormControl>
    )
 }

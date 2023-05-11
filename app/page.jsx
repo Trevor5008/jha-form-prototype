@@ -165,7 +165,7 @@ export default function Home() {
             </FormControl>
          </Container>
          {/* Section A */}
-         <Container className="mt-6 sm:px-0">
+         <Container className="mt-6 px-0">
             <Typography
                variant="h3"
                marginBottom={1}
@@ -179,17 +179,18 @@ export default function Home() {
                   display: "flex",
                   flexDirection: {
                      xs: "column",
-                     sm: "row"
+                     tablet: "row"
                   }
                }}
+               paddingX={1}
             >
                <Box
                   sx={{
                      width: {
-                        sm: "48%"
+                        tablet: "48%"
                      },
                      marginLeft: {
-                        sm: 0
+                        tablet: 0
                      }
                   }}
                >
@@ -207,8 +208,8 @@ export default function Home() {
                </Box>
                <Box
                   sx={{
-                     width: { sm: "50%" },
-                     marginLeft: { sm: 2, md: 4 }
+                     width: { tablet: "50%" },
+                     marginLeft: { tablet: 2, md: 4 }
                   }}
                >
                   {sectionAOpts
@@ -246,7 +247,7 @@ export default function Home() {
             >
                <span className="font-bold" >B.</span> Atmospheric Monitoring
             </Typography>
-            <Box display="flex flex-column">
+            <Box display="flex flex-column" paddingX={1}>
                {sectionBOpts.map(
                   (option, idx) => {
                      return (
