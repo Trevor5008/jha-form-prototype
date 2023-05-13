@@ -14,7 +14,8 @@ import {
    sectionBOpts,
    projectData,
    companyNames,
-   supervisors
+   supervisors,
+   situationElements
 } from "@/lib/options"
 import SectionAOptions from "./components/SectionAOptions"
 import SectionBOptions from "./components/SectionBOptions"
@@ -259,6 +260,27 @@ export default function Home() {
                      )
                   }
                )}
+            </Box>
+         </Container>
+         {/* Section C */}
+         <Container className="mt-4 px-0">
+         <Typography
+               variant="h3"
+               marginBottom={1}
+            >
+               <span className="font-bold" >C.1 </span> 
+               <span className="font-bold" >THINK </span>
+               about the work you and your crews will be doing today.
+            </Typography>
+            <Box
+                  sx={{
+                     width: { tablet: "50%" },
+                     marginLeft: { tablet: 2, md: 4 }
+                  }}
+               >
+            {situationElements.map((opt, idx) => {
+               return <SectionAOptions option={opt} />
+            })}
             </Box>
          </Container>
       </main>
