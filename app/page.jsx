@@ -10,7 +10,6 @@ import { FormControl } from "@mui/material"
 import DateTimeInput from "./components/DateTimeInput"
 import SelectInput from "./components/SelectInput"
 import {
-   sectionAOpts,
    sectionBOpts,
    projectData,
    companyNames,
@@ -166,7 +165,8 @@ export default function Home() {
             </FormControl>
          </Container>
          {/* Section A */}
-         <Container className="mt-6 px-0">
+         <SectionAOptions />
+         {/* <Container className="mt-6 px-0">
             <Typography
                variant="h3"
                marginBottom={1}
@@ -245,9 +245,9 @@ export default function Home() {
                   </Box>
                </Box>
             </Box>
-         </Container>
+         </Container> */}
          {/* Section B */}
-         <Container className="mt-4 px-0">
+         {/* <Container className="mt-4 px-0">
             <Typography
                variant="h3"
                marginBottom={1}
@@ -273,9 +273,9 @@ export default function Home() {
                   }
                )}
             </Box>
-         </Container>
+         </Container> */}
          {/* Section C */}
-         <Container className="mt-4 px-0">
+         {/* <Container className="mt-4 px-0">
             <Typography
                variant="h3"
                marginBottom={1}
@@ -323,7 +323,7 @@ export default function Home() {
                   }
                )}
             </Box>
-         </Container>
+         </Container> */}
       </main>
    )
 }
