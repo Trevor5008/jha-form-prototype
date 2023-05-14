@@ -7,7 +7,7 @@ import {
 import OptionInput from "./OptionInput"
 import { situationElements } from "@/lib/options"
 
-export default function SelectCOptions({}) {
+export default function SelectCOptions() {
    return (
       <Container className="mt-4 px-0">
          <Typography

@@ -8,7 +8,7 @@ import {
 import OptionInput from "./OptionInput"
 import { sectionBOpts } from "@/lib/options"
 
-export default function SelectBOptions({}) {
+export default function SelectBOptions() {
    return (
       <Container className="mt-4 px-0">
          <Typography

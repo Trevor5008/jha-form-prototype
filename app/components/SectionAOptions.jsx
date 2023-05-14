@@ -6,7 +6,7 @@ import {
 import OptionInput from "./OptionInput"
 import { sectionAOpts } from "@/lib/options"
 
-export default function CheckOptions() {
+export default function SectionAOptions() {
    return (
       <Container className="mt-6 px-0">
          <Typography
