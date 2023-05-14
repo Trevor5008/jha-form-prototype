@@ -14,7 +14,8 @@ import {
    sectionBOpts,
    projectData,
    companyNames,
-   supervisors
+   supervisors,
+   situationElements
 } from "@/lib/options"
 import SectionAOptions from "./components/SectionAOptions"
 import SectionBOptions from "./components/SectionBOptions"
@@ -165,12 +166,15 @@ export default function Home() {
             </FormControl>
          </Container>
          {/* Section A */}
-         <Container className="mt-6 sm:px-0">
+         <Container className="mt-6 px-0">
             <Typography
                variant="h3"
                marginBottom={1}
             >
-               <span className="font-bold" >A.</span> Are Permits Required? Are they
+               <span className="font-bold">
+                  A.
+               </span>{" "}
+               Are Permits Required? Are they
                displayed and properly signed by
                the PSC/PSA?
             </Typography>
@@ -179,17 +183,18 @@ export default function Home() {
                   display: "flex",
                   flexDirection: {
                      xs: "column",
-                     sm: "row"
+                     tablet: "row"
                   }
                }}
+               paddingX={1}
             >
                <Box
                   sx={{
                      width: {
-                        sm: "48%"
+                        tablet: "48%"
                      },
                      marginLeft: {
-                        sm: 0
+                        tablet: 0
                      }
                   }}
                >
@@ -207,8 +212,11 @@ export default function Home() {
                </Box>
                <Box
                   sx={{
-                     width: { sm: "50%" },
-                     marginLeft: { sm: 2, md: 4 }
+                     width: { tablet: "50%" },
+                     marginLeft: {
+                        tablet: 2,
+                        md: 4
+                     }
                   }}
                >
                   {sectionAOpts
@@ -244,9 +252,15 @@ export default function Home() {
                variant="h3"
                marginBottom={1}
             >
-               <span className="font-bold" >B.</span> Atmospheric Monitoring
+               <span className="font-bold">
+                  B.
+               </span>{" "}
+               Atmospheric Monitoring
             </Typography>
-            <Box display="flex flex-column">
+            <Box
+               display="flex flex-column"
+               paddingX={1}
+            >
                {sectionBOpts.map(
                   (option, idx) => {
                      return (
@@ -254,6 +268,56 @@ export default function Home() {
                            key={idx}
                            option={option}
                            column={2}
+                        />
+                     )
+                  }
+               )}
+            </Box>
+         </Container>
+         {/* Section C */}
+         <Container className="mt-4 px-0">
+            <Typography
+               variant="h3"
+               marginBottom={1}
+            >
+               <span className="font-bold">
+                  C.1{" "}
+               </span>
+               <span className="font-bold">
+                  THINK{" "}
+               </span>
+               about the work you and your crews
+               will be doing today.
+            </Typography>
+            <Typography
+               variant="body1"
+               marginLeft={2}
+            >
+               Select{" "}
+               <span className="font-bold">
+                  Yes/No
+               </span>{" "}
+               for each element
+            </Typography>
+            <Typography
+               variant="body2"
+               marginLeft={2}
+            >
+               * All elements identified with a
+               Yes must be addressed in Section D
+            </Typography>
+            <Box
+               sx={{
+                  width: { tablet: "50%" },
+                  marginLeft: { tablet: 2, md: 4 }
+               }}
+            >
+               {situationElements.map(
+                  (opt, idx) => {
+                     return (
+                        <SectionAOptions
+                           key={idx}
+                           option={opt}
                         />
                      )
                   }
