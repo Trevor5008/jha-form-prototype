@@ -4,20 +4,18 @@ import {
    Container,
    TextField,
    FormHelperText,
-   Box
 } from "@mui/material"
 import { FormControl } from "@mui/material"
 import DateTimeInput from "./components/DateTimeInput"
 import SelectInput from "./components/SelectInput"
 import {
-   sectionBOpts,
    projectData,
    companyNames,
-   supervisors,
-   situationElements
+   supervisors
 } from "@/lib/options"
 import SectionAOptions from "./components/SectionAOptions"
 import SectionBOptions from "./components/SectionBOptions"
+import SectionCOptions from "./components/SectionCOptions"
 
 export default function Home() {
    return (
@@ -166,164 +164,10 @@ export default function Home() {
          </Container>
          {/* Section A */}
          <SectionAOptions />
-         {/* <Container className="mt-6 px-0">
-            <Typography
-               variant="h3"
-               marginBottom={1}
-            >
-               <span className="font-bold">
-                  A.
-               </span>{" "}
-               Are Permits Required? Are they
-               displayed and properly signed by
-               the PSC/PSA?
-            </Typography>
-            <Box
-               sx={{
-                  display: "flex",
-                  flexDirection: {
-                     xs: "column",
-                     tablet: "row"
-                  }
-               }}
-               paddingX={1}
-            >
-               <Box
-                  sx={{
-                     width: {
-                        tablet: "48%"
-                     },
-                     marginLeft: {
-                        tablet: 0
-                     }
-                  }}
-               >
-                  {sectionAOpts
-                     .slice(0, 3)
-                     .map((option, idx) => {
-                        return (
-                           <SectionAOptions
-                              key={idx}
-                              option={option}
-                              column={1}
-                           />
-                        )
-                     })}
-               </Box>
-               <Box
-                  sx={{
-                     width: { tablet: "50%" },
-                     marginLeft: {
-                        tablet: 2,
-                        md: 4
-                     }
-                  }}
-               >
-                  {sectionAOpts
-                     .slice(3)
-                     .map((option, idx) => {
-                        return (
-                           <SectionAOptions
-                              key={idx}
-                              option={option}
-                              column={2}
-                           />
-                        )
-                     })}
-                  <Box width="100%">
-                     <TextField
-                        label="Other"
-                        variant="standard"
-                        fullWidth
-                        sx={{
-                           "& .MuiFormLabel-root":
-                              {
-                                 color: "black"
-                              }
-                        }}
-                     />
-                  </Box>
-               </Box>
-            </Box>
-         </Container> */}
          {/* Section B */}
-         {/* <Container className="mt-4 px-0">
-            <Typography
-               variant="h3"
-               marginBottom={1}
-            >
-               <span className="font-bold">
-                  B.
-               </span>{" "}
-               Atmospheric Monitoring
-            </Typography>
-            <Box
-               display="flex flex-column"
-               paddingX={1}
-            >
-               {sectionBOpts.map(
-                  (option, idx) => {
-                     return (
-                        <SectionBOptions
-                           key={idx}
-                           option={option}
-                           column={2}
-                        />
-                     )
-                  }
-               )}
-            </Box>
-         </Container> */}
+         <SectionBOptions />
          {/* Section C */}
-         {/* <Container className="mt-4 px-0">
-            <Typography
-               variant="h3"
-               marginBottom={1}
-            >
-               <span className="font-bold">
-                  C.1{" "}
-               </span>
-               <span className="font-bold">
-                  THINK{" "}
-               </span>
-               about the work you and your crews
-               will be doing today.
-            </Typography>
-            <Typography
-               variant="body1"
-               marginLeft={2}
-            >
-               Select{" "}
-               <span className="font-bold">
-                  Yes/No
-               </span>{" "}
-               for each element
-            </Typography>
-            <Typography
-               variant="body2"
-               marginLeft={2}
-            >
-               * All elements identified with a
-               Yes must be addressed in Section D
-            </Typography>
-            <Box
-               sx={{
-                  width: { tablet: "50%" },
-                  marginLeft: { tablet: 2, md: 4 }
-               }}
-            >
-               {situationElements.map(
-                  (opt, idx) => {
-                     return (
-                        <SectionAOptions
-                           key={idx}
-                           option={opt}
-                        />
-                     )
-                  }
-               )}
-            </Box>
-         </Container> */}
+         <SectionCOptions />
       </main>
    )
 }
