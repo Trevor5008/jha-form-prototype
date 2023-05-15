@@ -1,14 +1,15 @@
 import {
    Container,
    Typography,
-   Box
+   Box,
+   TextField
 } from "@mui/material"
 import OptionInput from "./OptionInput"
 import { sectionAOpts } from "@/lib/options"
 
 export default function SectionAOptions() {
    return (
-      <Container className="mt-6 px-0">
+      <Container className="my-6 px-0">
          <Typography
             variant="h3"
             marginBottom={1}
@@ -38,14 +39,48 @@ export default function SectionAOptions() {
                   }
                }}
             >
-               {sectionAOpts.map((opt, idx) => {
-                  return (
-                     <OptionInput
-                        key={idx}
-                        option={opt}
-                     />
-                  )
-               })}
+               {sectionAOpts
+                  .slice(0, 3)
+                  .map((opt, idx) => {
+                     return (
+                        <OptionInput
+                           key={idx}
+                           option={opt}
+                        />
+                     )
+                  })}
+            </Box>
+            <Box
+               sx={{
+                  width: {
+                     tablet: "50%"
+                  },
+                  marginLeft: {
+                     tablet: 0
+                  }
+               }}
+            >
+               {sectionAOpts
+                  .slice(3)
+                  .map((opt, idx) => {
+                     return (
+                        <OptionInput
+                           key={idx}
+                           option={opt}
+                        />
+                     )
+                  })}
+               <TextField
+                  label="Other"
+                  variant="standard"
+                  
+                  fullWidth
+                  sx={{
+                     "& .MuiFormLabel-root": {
+                        color: "black"
+                     }
+                  }}
+               />
             </Box>
          </Box>
       </Container>
