@@ -25,9 +25,11 @@ export default function SectionAOptions() {
                flexDirection: {
                   xs: "column",
                   tablet: "row"
+               },
+               paddingX: {
+                  sm: 1
                }
             }}
-            paddingX={1}
          >
             <Box
                sx={{
@@ -46,6 +48,7 @@ export default function SectionAOptions() {
                         <OptionInput
                            key={idx}
                            option={opt}
+                           hasLabel={true}
                         />
                      )
                   })}
@@ -67,18 +70,20 @@ export default function SectionAOptions() {
                         <OptionInput
                            key={idx}
                            option={opt}
+                           hasLabel={true}
                         />
                      )
                   })}
                <TextField
                   label="Other"
                   variant="standard"
-                  
                   fullWidth
                   sx={{
                      "& .MuiFormLabel-root": {
                         color: "black"
-                     }
+                     },
+                     marginLeft: 1,
+                     paddingRight: 2
                   }}
                />
             </Box>

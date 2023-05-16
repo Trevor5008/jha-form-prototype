@@ -9,7 +9,10 @@ import {
 import CheckIcon from "@mui/icons-material/Check"
 import CheckBoxOutlineBlankOutlinedIcon from "@mui/icons-material/CheckBoxOutlineBlankOutlined"
 
-export default function OptionInput({ option }) {
+export default function OptionInput({
+   option,
+   hasLabel
+}) {
    const [value, setValue] = useState(false)
 
    const handleChange = (evt) =>
@@ -18,21 +21,28 @@ export default function OptionInput({ option }) {
    return (
       <FormControl
          className="mb-2 flex flex-nowrap items-center justify-between"
+         fullWidth
          sx={{ flexDirection: "row" }}
       >
-         <FormLabel
-            id={`${option} radio group`}
-            className="text-black"
-         >
-            {option}
-         </FormLabel>
+         {hasLabel && (
+            <FormLabel
+               id={`${option} radio group`}
+               className="text-black"
+               sx={{
+                  marginLeft: 1
+               }}
+            >
+               {option}
+            </FormLabel>
+         )}
          <RadioGroup
             aria-labelledby={`${option} radio group`}
             name={`${option} radio group`}
             value={value}
             onChange={handleChange}
             sx={{
-               display: "inline-block"
+               display: "inline-block",
+               marginLeft: 1
             }}
          >
             <FormControlLabel
@@ -51,8 +61,7 @@ export default function OptionInput({ option }) {
                      option === "Other" &&
                      "hidden",
                   marginRight: {
-                     xs: "14px",
-                     sm: "10px"
+                     xs: 1
                   }
                }}
             />
@@ -67,11 +76,6 @@ export default function OptionInput({ option }) {
                   />
                }
                label="No"
-               sx={{
-                  visibility:
-                     option === "Other" &&
-                     "hidden"
-               }}
             />
          </RadioGroup>
       </FormControl>

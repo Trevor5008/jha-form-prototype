@@ -3,7 +3,8 @@ import {
    Container,
    Box,
    Typography,
-   TextField
+   TextField,
+   FormLabel
 } from "@mui/material"
 import OptionInput from "./OptionInput"
 import { sectionBOpts } from "@/lib/options"
@@ -19,34 +20,58 @@ export default function SelectBOptions() {
             Atmospheric Monitoring
          </Typography>
          <Box
-            display="flex flex-column"
-            paddingX={1}
+            sx={{
+               display: "flex",
+               flexDirection: {
+                  xs: "column",
+                  tablet: "row"
+               },
+               paddingX: {
+                  sm: 1
+               }
+            }}
          >
             {sectionBOpts.map((option, idx) => {
                return (
-                  <OptionInput
-                     key={idx}
-                     option={option}
-                     column={2}
-                  />
+                  <Box
+                     display="flex"
+                     sx={{
+                        flexDirection: "column"
+                     }}
+                  >
+                     <FormLabel
+                        className="text-black"
+                        sx={{ marginLeft: 1 }}
+                     >
+                        {option}
+                     </FormLabel>
+                     <Box
+                        display="flex"
+                        sx={{
+                           flexDirection: "row",
+                           alignItems: "baseline"
+                        }}
+                     >
+                        <OptionInput
+                           key={idx}
+                           option={option}
+                           hasLabel={false}
+                        />
+                        <TextField
+                           label="Reading"
+                           variant="standard"
+                           sx={{
+                              "& .MuiFormLabel-root":
+                                 {
+                                    color: "black"
+                                 },
+                                 paddingRight: 1
+                           }}
+                        />
+                     </Box>
+                  </Box>
                )
             })}
-            <TextField
-               // id={`${option} reading`}
-               label="Reading"
-               variant="standard"
-               className="w-[30%]"
-               // sx={{
-               //    visibility:
-               //       option ===
-               //       "Are concentration levels safe?"
-               //          ? "hidden"
-               //          : "",
-               //    "& .MuiFormLabel-root": {
-               //       color: "black"
-               //    }
-               // }}
-            />
          </Box>
       </Container>
    )
