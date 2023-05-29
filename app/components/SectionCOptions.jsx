@@ -52,6 +52,7 @@ export default function SelectCOptions() {
                         <OptionInput
                            key={idx}
                            option={opt}
+                           hasLabel={true}
                         />
                      )
                   }

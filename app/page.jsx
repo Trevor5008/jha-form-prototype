@@ -6,6 +6,7 @@ import {
    FormHelperText,
 } from "@mui/material"
 import { FormControl } from "@mui/material"
+import Header from "./components/Header"
 import DateTimeInput from "./components/DateTimeInput"
 import SelectInput from "./components/SelectInput"
 import {
@@ -20,6 +21,7 @@ import SectionCOptions from "./components/SectionCOptions"
 export default function Home() {
    return (
       <main className="mx-6 sm:mx-8">
+         <Header />
          {/* Title */}
          <Typography
             variant="h1"
@@ -30,7 +32,8 @@ export default function Home() {
          {/* Description */}
          <Typography
             variant="body1"
-            className="block text-center"
+            className="block text-justify"
+            align="justify"
          >
             This JHA is valid only for the work
             and date specified. This JHA shall be
@@ -168,6 +171,7 @@ export default function Home() {
          <SectionBOptions />
          {/* Section C */}
          <SectionCOptions />
+         <label>Welding</label><input type="text"></input>
       </main>
    )
 }
