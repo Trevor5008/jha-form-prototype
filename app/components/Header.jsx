@@ -6,14 +6,36 @@ export default function Header() {
       <Box
          display="flex"
          border={2}
-         justifyContent="space-between"
          paddingY={.5}
+         alignItems='center'
+         marginTop={2}
+         sx={{
+            flexDirection: {
+                xs: 'column',
+                sm: 'row'
+            },
+            alignItems: {
+                xs: 'center'
+            },
+            justifyContent: {
+                xs: 'center',
+                sm: 'space-between'
+            }
+         }}
       >
          <Typography
             variant="h3"
             textTransform="uppercase"
             fontWeight="bolder"
-            marginLeft={1}
+            sx={{
+                marginLeft: {
+                    sm: 1
+                },
+                marginBottom: {
+                    xs: .5,
+                    sm: 0
+                }
+            }}
          >
             Exhibit M
          </Typography>
@@ -21,7 +43,11 @@ export default function Header() {
             variant="h3"
             textTransform="uppercase"
             fontWeight="bolder"
-            marginRight={4}
+            sx={{
+                marginRight: {
+                    sm: 4
+                }
+            }}
          >
             Job Hazard Analysis Form (Mandatory)
          </Typography>

@@ -151,6 +151,27 @@ export default function Home() {
                   data={supervisors}
                />
             </FormControl>
+            {/* Foreman */}
+            <FormControl
+               sx={{
+                  marginLeft: {
+                     sm: ".5rem"
+                  },
+                  width: {
+                     xs: "100%",
+                     sm: "50%"
+                  },
+                  marginBottom: {
+                     xs: ".75rem"
+                  }
+               }}
+               required
+            >
+               <SelectInput
+                  name="Foreman"
+                  data={supervisors}
+               />
+            </FormControl>
          </Container>
          {/* 3rd Row | Project Description*/}
          <Container className="p-0 flex">
