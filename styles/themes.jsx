@@ -24,6 +24,9 @@ export const theme = createTheme({
       },
       h4: {
         fontSize: 14
+      },
+      body2: {
+         fontSize: 10
       }
    },
    breakpoints: {

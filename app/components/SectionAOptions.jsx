@@ -1,79 +1,98 @@
-import { useState } from "react"
 import {
-   FormControl,
-   FormControlLabel,
-   FormLabel
+   Container,
+   Typography,
+   Box,
+   TextField
 } from "@mui/material"
-import RadioGroup from "@mui/material/RadioGroup"
-import Radio from "@mui/material/Radio"
-import CheckIcon from "@mui/icons-material/Check"
-import CheckBoxOutlineBlankOutlinedIcon from "@mui/icons-material/CheckBoxOutlineBlankOutlined"
+import OptionInput from "./OptionInput"
+import { sectionAOpts } from "@/lib/options"
 
-export default function CheckOptions({ option }) {
-   const [value, setValue] = useState(false)
-
-   const handleChange = (evt) =>
-      setValue(evt.target.value)
-
+export default function SectionAOptions() {
    return (
-      <FormControl
-         className="mb-2 flex flex-nowrap items-center justify-between"
-         sx={{ flexDirection: "row" }}
-      >
-         <FormLabel
-            id={`${option} radio group`}
-            className="text-black"
+      <Container className="my-6 px-0">
+         <Typography
+            variant="h3"
+            marginBottom={1}
          >
-            {option}
-         </FormLabel>
-         <RadioGroup
-            aria-labelledby={`${option} radio group`}
-            name={`${option} radio group`}
-            value={value}
-            onChange={handleChange}
+            <span className="font-bold">A.</span>{" "}
+            Are Permits Required? Are they
+            displayed and properly signed by the
+            PSC/PSA?
+         </Typography>
+         <Box
             sx={{
-               display: "inline-block"
+               display: "flex",
+               flexDirection: {
+                  xs: "column",
+                  tablet: "row"
+               },
+               paddingX: {
+                  sm: 1
+               }
             }}
          >
-            <FormControlLabel
-               value={true}
-               control={
-                  <Radio
-                     checkedIcon={<CheckIcon />}
-                     icon={
-                        <CheckBoxOutlineBlankOutlinedIcon />
-                     }
-                  />
-               }
-               label="Yes"
+            <Box
                sx={{
-                  visibility:
-                     option === "Other" &&
-                     "hidden",
-                  marginRight: {
-                     xs: "14px",
-                     sm: "10px"
+                  width: {
+                     tablet: "48%"
+                  },
+                  marginLeft: {
+                     tablet: 0
                   }
                }}
-            />
-            <FormControlLabel
-               value={false}
-               control={
-                  <Radio
-                     checkedIcon={<CheckIcon />}
-                     icon={
-                        <CheckBoxOutlineBlankOutlinedIcon />
-                     }
-                  />
-               }
-               label="No"
+            >
+               {sectionAOpts
+                  .slice(0, 3)
+                  .map((opt, idx) => {
+                     return (
+                        <OptionInput
+                           key={idx}
+                           option={opt}
+                           hasLabel={true}
+                        />
+                     )
+                  })}
+            </Box>
+            <Box
                sx={{
-                  visibility:
-                     option === "Other" &&
-                     "hidden"
+                  width: {
+                     tablet: "50%"
+                  },
+                  marginLeft: {
+                     tablet: 0
+                  }
                }}
-            />
-         </RadioGroup>
-      </FormControl>
+            >
+               {sectionAOpts
+                  .slice(3)
+                  .map((opt, idx) => {
+                     return (
+                        <OptionInput
+                           key={idx}
+                           option={opt}
+                           hasLabel={true}
+                        />
+                     )
+                  })}
+               <TextField
+                  label="Other"
+                  variant="standard"
+                  fullWidth
+                  sx={{
+                     "& .MuiFormLabel-root": {
+                        color: "black",
+                        fontSize: {
+                           xs: 14,
+                           sm: 16
+                        }
+                     },
+                     paddingRight: 1
+                  }}
+                  helperText="
+                  * specify above"
+               />
+            </Box>
+         </Box>
+      </Container>
    )
 }

@@ -1,89 +1,95 @@
 "use client"
-import { useState } from "react"
-import Radio from "@mui/material/Radio"
-import TextField from "@mui/material/TextField"
-import RadioGroup from "@mui/material/RadioGroup"
-import FormControlLabel from "@mui/material/FormControlLabel"
-import FormControl from "@mui/material/FormControl"
-import FormLabel from "@mui/material/FormLabel"
-import CheckIcon from "@mui/icons-material/Check"
-import CheckBoxOutlineBlankOutlinedIcon 
-   from "@mui/icons-material/CheckBoxOutlineBlankOutlined"
+import {
+   Container,
+   Box,
+   Typography,
+   TextField,
+   FormLabel
+} from "@mui/material"
+import OptionInput from "./OptionInput"
+import { sectionBOpts } from "@/lib/options"
 
-export default function SelectBOptions({
-   option
-}) {
-   const [value, setValue] = useState(false)
-
-   const handleChange = (evt) => {
-      setValue(evt.target.value)
-   }
-
+export default function SelectBOptions() {
    return (
-      <FormControl
-         className="flex justify-between items-center mb-2"
-         fullWidth
-         sx={{
-            flexDirection: "row"
-         }}
-      >
-         <FormLabel
-            id={`${option} radio group`}
-            className="text-black"
+      <Container className="mt-4 px-0">
+         <Typography
+            variant="h3"
+            marginBottom={1}
          >
-            {option}
-         </FormLabel>
-         <RadioGroup
-            aria-labelledby={`${option} radio group`}
-            name={`${option} radio group`}
-            value={value}
-            onChange={handleChange}
-            className="absolute left-[40%]"
+            <span className="font-bold">B.</span>{" "}
+            Atmospheric Monitoring
+         </Typography>
+         <Box
             sx={{
-               display: "inline-block"
+               display: "flex",
+               flexDirection: {
+                  xs: "column",
+                  tablet: "row"
+               },
+               paddingX: {
+                  sm: 1
+               }
             }}
          >
-            <FormControlLabel
-               value={true}
-               control={
-                  <Radio
-                     checkedIcon={<CheckIcon />}
-                     icon={
-                        <CheckBoxOutlineBlankOutlinedIcon />
-                     }
-                  />
-               }
-               label="Yes"
-            />
-            <FormControlLabel
-               value={false}
-               control={
-                  <Radio
-                     checkedIcon={<CheckIcon />}
-                     icon={
-                        <CheckBoxOutlineBlankOutlinedIcon />
-                     }
-                  />
-               }
-               label="No"
-            />
-         </RadioGroup>
-         <TextField
-            id={`${option} reading`}
-            label="Reading"
-            variant="standard"
-            className="w-[30%]"
-            sx={{
-               visibility:
-                  option ===
-                  "Are concentration levels safe?"
-                     ? "hidden"
-                     : "",
-               "& .MuiFormLabel-root": {
-                  color: "black"
-               }
-            }}
-         />
-      </FormControl>
+            {sectionBOpts.map((option, idx) => {
+               return (
+                  <Box
+                     display="flex"
+                     sx={{
+                        flexDirection: "column"
+                     }}
+                  >
+                     <FormLabel
+                        className="text-black"
+                        sx={{
+                           marginLeft: 1,
+                           fontSize: {
+                              xs: 14,
+                              sm: 16
+                           }
+                        }}
+                     >
+                        {option}
+                     </FormLabel>
+                     <Box
+                        display="flex"
+                        sx={{
+                           flexDirection: "row",
+                           alignItems: "baseline"
+                        }}
+                     >
+                        <OptionInput
+                           key={idx}
+                           option={option}
+                           hasLabel={false}
+                        />
+                        {/* Last option exclude reading field */}
+                        {idx !== 3 && (
+                           <TextField
+                              label="Reading"
+                              variant="standard"
+                              sx={{
+                                 fontSize: {
+                                    xs: 14,
+                                    sm: 16
+                                 },
+                                 "& .MuiFormLabel-root":
+                                    {
+                                       color: "black",
+                                       fontSize: {
+                                          xs: 14,
+                                          sm: 16
+                                       }
+                                    },
+                                 paddingRight: 1
+                              }}
+                           />
+                        )}
+                     </Box>
+                  </Box>
+               )
+            })}
+         </Box>
+      </Container>
    )
 }
