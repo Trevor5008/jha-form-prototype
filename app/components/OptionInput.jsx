@@ -29,7 +29,11 @@ export default function OptionInput({
                id={`${option} radio group`}
                className="text-black"
                sx={{
-                  marginLeft: 1
+                  fontSize: {
+                     xs: 14,
+                     sm: 16
+                  },
+                  width: '50%'
                }}
             >
                {option}
@@ -61,7 +65,19 @@ export default function OptionInput({
                      option === "Other" &&
                      "hidden",
                   marginRight: {
-                     xs: 1
+                     xs: 2
+                  },
+                  '& .MuiTypography-root': {
+                     fontSize: {
+                        xs: 14,
+                        sm: 16
+                     }
+                  },
+                  '& .MuiSvgIcon-root': {
+                     width: {
+                        xs: 20,
+                        sm: 24
+                     }
                   }
                }}
             />
@@ -76,6 +92,30 @@ export default function OptionInput({
                   />
                }
                label="No"
+               sx={{
+                  marginRight: {
+                     xs: 0,
+                     sm: 1
+                  },
+                  '& .MuiTypography-root': {
+                     fontSize: {
+                        xs: 14,
+                        sm: 16
+                     }
+                  },
+                  '& .MuiButtonBase-root': {
+                     width: {
+                        xs: 34,
+                        sm: 40
+                     }
+                  },
+                  '& .MuiSvgIcon-root': {
+                     width: {
+                        xs: 20,
+                        sm: 24
+                     }
+                  }
+               }}
             />
          </RadioGroup>
       </FormControl>

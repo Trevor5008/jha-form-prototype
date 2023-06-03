@@ -41,7 +41,13 @@ export default function SelectBOptions() {
                   >
                      <FormLabel
                         className="text-black"
-                        sx={{ marginLeft: 1 }}
+                        sx={{
+                           marginLeft: 1,
+                           fontSize: {
+                              xs: 14,
+                              sm: 16
+                           }
+                        }}
                      >
                         {option}
                      </FormLabel>
@@ -57,17 +63,28 @@ export default function SelectBOptions() {
                            option={option}
                            hasLabel={false}
                         />
-                        <TextField
-                           label="Reading"
-                           variant="standard"
-                           sx={{
-                              "& .MuiFormLabel-root":
-                                 {
-                                    color: "black"
+                        {/* Last option exclude reading field */}
+                        {idx !== 3 && (
+                           <TextField
+                              label="Reading"
+                              variant="standard"
+                              sx={{
+                                 fontSize: {
+                                    xs: 14,
+                                    sm: 16
                                  },
+                                 "& .MuiFormLabel-root":
+                                    {
+                                       color: "black",
+                                       fontSize: {
+                                          xs: 14,
+                                          sm: 16
+                                       }
+                                    },
                                  paddingRight: 1
-                           }}
-                        />
+                              }}
+                           />
+                        )}
                      </Box>
                   </Box>
                )

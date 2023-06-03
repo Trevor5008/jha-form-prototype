@@ -80,11 +80,16 @@ export default function SectionAOptions() {
                   fullWidth
                   sx={{
                      "& .MuiFormLabel-root": {
-                        color: "black"
+                        color: "black",
+                        fontSize: {
+                           xs: 14,
+                           sm: 16
+                        }
                      },
-                     marginLeft: 1,
-                     paddingRight: 2
+                     paddingRight: 1
                   }}
+                  helperText="
+                  * specify above"
                />
             </Box>
          </Box>

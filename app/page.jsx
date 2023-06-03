@@ -20,7 +20,7 @@ import SectionCOptions from "./components/SectionCOptions"
 
 export default function Home() {
    return (
-      <main className="mx-6 sm:mx-8">
+      <main className="mx-4 sm:mx-8">
          <Header />
          {/* Title */}
          <Typography
@@ -192,7 +192,6 @@ export default function Home() {
          <SectionBOptions />
          {/* Section C */}
          <SectionCOptions />
-         <label>Welding</label><input type="text"></input>
       </main>
    )
 }

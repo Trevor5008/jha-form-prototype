@@ -9,6 +9,7 @@ export default function Header() {
          paddingY={.5}
          alignItems='center'
          marginTop={2}
+         textAlign='center'
          sx={{
             flexDirection: {
                 xs: 'column',
