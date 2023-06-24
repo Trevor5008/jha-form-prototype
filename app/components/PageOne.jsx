@@ -2,26 +2,20 @@
 import {
    Typography,
    Container,
-   TextField,
-   FormHelperText,
+   TextField
 } from "@mui/material"
 import { FormControl } from "@mui/material"
-import Header from "./components/Header"
-import DateTimeInput from "./components/DateTimeInput"
-import SelectInput from "./components/SelectInput"
+import DateTimeInput from "./DateTimeInput"
+import SelectInput from "./SelectInput"
 import {
    projectData,
    companyNames,
    supervisors
 } from "@/lib/options"
-import SectionAOptions from "./components/SectionAOptions"
-import SectionBOptions from "./components/SectionBOptions"
-import SectionCOptions from "./components/SectionCOptions"
 
-export default function Home() {
+export default function PageOne() {
    return (
-      <main className="mx-4 sm:mx-8">
-         <Header />
+      <section>
          {/* Title */}
          <Typography
             variant="h1"
@@ -186,12 +180,6 @@ export default function Home() {
                {/* <FormHelperText>Describe work to be performed</FormHelperText> */}
             </FormControl>
          </Container>
-         {/* Section A */}
-         <SectionAOptions />
-         {/* Section B */}
-         <SectionBOptions />
-         {/* Section C */}
-         <SectionCOptions />
-      </main>
+      </section>
    )
 }
