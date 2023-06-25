@@ -4,11 +4,24 @@ import Button from "@mui/material/Button"
 import Container from "@mui/material/Container"
 import Box from "@mui/material/Box"
 import Link from "next/link"
+import { useState } from "react"
 
 export default function PageThree() {
+   const [selections, setSelections] = useState(
+      []
+   )
+
+   const handleOptionsChange = (options) => {
+      const updatedSelections = options
+      setSelections(updatedSelections)
+   }
+
    return (
       <Container>
-         <SectionCOptions />
+         <SectionCOptions
+            onOptionsChange={handleOptionsChange}
+            selections={selections}
+         />
          <Box
             display="flex"
             justifyContent="space-evenly"
@@ -19,26 +32,16 @@ export default function PageThree() {
                </Link>
             </Button>
             <Button variant="standard">
-               <Link href="/page-three">
+               <Link
+                  href={{
+                     pathname: "/page-four",
+                     query: {
+                        data: selections
+                     }
+                  }}
+               >
                   Next
                </Link>
-            </Button>
-         </Box>
-         <Box
-            display="flex"
-            justifyContent="center"
-            paddingY={1}
-         >
-            <Button
-               variant="outlined"
-               type="submit"
-               sx={{
-                  width: "100%",
-                  color: "black",
-                  borderColor: "black"
-               }}
-            >
-               Submit
             </Button>
          </Box>
       </Container>
