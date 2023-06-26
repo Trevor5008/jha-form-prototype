@@ -13,7 +13,6 @@ import {
    properPpe
 } from "@/lib/options"
 import { useState } from "react"
-import { ConnectingAirportsOutlined } from "@mui/icons-material"
 
 export default function SelectCOptions({ onOptionsChange }) {
    const [options, setOptions] = useState([])
@@ -33,14 +32,11 @@ export default function SelectCOptions({ onOptionsChange }) {
 
    return (
       <Container className="mt-4 px-0">
-         {/* C.1 */}
+         <Box marginBottom={2}>
          <Typography
             variant="h3"
-            marginBottom={1}
+            marginBottom={0.5}
          >
-            <span className="font-bold">
-               C.1{" "}
-            </span>
             <span className="font-bold">
                THINK{" "}
             </span>
@@ -63,6 +59,15 @@ export default function SelectCOptions({ onOptionsChange }) {
          >
             * All elements identified with a Yes
             must be addressed in Section D
+         </Typography>
+         </Box>
+         {/* C.1 */}
+         <Typography
+            variant="h3"
+            marginBottom={1}
+         >
+            <span className="font-bold">C.1</span>{" "}
+            Task/Scope
          </Typography>
          <Box
             sx={{
