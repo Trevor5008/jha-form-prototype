@@ -12,23 +12,9 @@ import {
    hazardControls,
    properPpe
 } from "@/lib/options"
-import { useState } from "react"
 
-export default function SelectCOptions({ onOptionsChange }) {
-   const [options, setOptions] = useState([])
+export default function SelectCOptions() {
 
-   const handleOptionChange = (section, option, val) => {
-      const updatedOptions = options
-      // check if option is already present
-      if (!updatedOptions.find((el) => el[1] === option)) {
-         updatedOptions.push([section, option, val])
-      } else {
-         updatedOptions.find((el) => el[1] === option)
-            [2] = val
-      }
-      setOptions(updatedOptions)
-      onOptionsChange(updatedOptions)
-   }
 
    return (
       <Container className="mt-4 px-0">
@@ -85,7 +71,6 @@ export default function SelectCOptions({ onOptionsChange }) {
                      key={idx}
                      option={opt}
                      hasLabel={true}
-                     onOptionChange={handleOptionChange}
                      section={1}
                   />
                )
@@ -136,7 +121,6 @@ export default function SelectCOptions({ onOptionsChange }) {
                      key={idx}
                      option={opt}
                      hasLabel={true}
-                     onOptionChange={handleOptionChange}
                      section={2}
                   />
                )
@@ -209,7 +193,6 @@ export default function SelectCOptions({ onOptionsChange }) {
                      option={opt}
                      hasLabel={true}
                      section={3}
-                     onOptionChange={handleOptionChange}
                   />
                )
             })}
@@ -281,7 +264,6 @@ export default function SelectCOptions({ onOptionsChange }) {
                      option={opt}
                      hasLabel={true}
                      section={4}
-                     onOptionChange={handleOptionChange}
                   />
                )
             })}

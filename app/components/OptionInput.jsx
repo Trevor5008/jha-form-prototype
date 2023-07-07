@@ -1,4 +1,6 @@
-import { useState } from "react"
+import { useDispatch, useSelector } from 'react-redux'
+import { addHazard, removeHazard } from "../features/hazards/hazardsSlice"
+import { selectHazards } from '../features/hazards/hazardsSlice'
 import {
    FormControl,
    FormControlLabel,
@@ -12,14 +14,18 @@ import CheckBoxOutlineBlankOutlinedIcon from "@mui/icons-material/CheckBoxOutlin
 export default function OptionInput({
    option,
    hasLabel,
-   onOptionChange,
    section
 }) {
-   const [value, setValue] = useState(false)
+
+   const hazards = useSelector(selectHazards)
+   const dispatch = useDispatch()
 
    const handleChange = (evt) => {
-      setValue(evt.target.value)
-      onOptionChange(section, option, evt.target.value)
+      if (evt.target.value === 'true') {
+         dispatch(addHazard(evt.target.name))
+      } else {
+         dispatch(removeHazard(evt.target.name))
+      }
    }
 
    return (
@@ -45,10 +51,10 @@ export default function OptionInput({
          )}
          <RadioGroup
             aria-labelledby={`${option} radio group`}
-            name={`${option} radio group`}
+            name={`${option}`}
             onChange={handleChange}
             section={section}
-            value={value}
+            value={hazards.includes(option) ? true : false}
             sx={{
                display: "inline-block",
                marginLeft: 1
