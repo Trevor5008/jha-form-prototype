@@ -11,12 +11,16 @@ import CheckBoxOutlineBlankOutlinedIcon from "@mui/icons-material/CheckBoxOutlin
 
 export default function OptionInput({
    option,
-   hasLabel
+   hasLabel,
+   onOptionChange,
+   section
 }) {
    const [value, setValue] = useState(false)
 
-   const handleChange = (evt) =>
+   const handleChange = (evt) => {
       setValue(evt.target.value)
+      onOptionChange(section, option, evt.target.value)
+   }
 
    return (
       <FormControl
@@ -42,8 +46,9 @@ export default function OptionInput({
          <RadioGroup
             aria-labelledby={`${option} radio group`}
             name={`${option} radio group`}
-            value={value}
             onChange={handleChange}
+            section={section}
+            value={value}
             sx={{
                display: "inline-block",
                marginLeft: 1
