@@ -112,7 +112,7 @@ export default function OptionInput({
             name={`${option}`}
             onChange={handleChange}
             section={section}
-            value={data.includes(option) ? true : false}
+            value={data && data.includes(option) ? true : false}
             sx={{
                display: "inline-block",
                marginLeft: 1

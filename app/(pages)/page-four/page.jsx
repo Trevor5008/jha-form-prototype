@@ -4,6 +4,7 @@ import Container from "@mui/material/Container"
 import Box from "@mui/material/Box"
 import Typography from "@mui/material/Typography"
 import Link from "next/link"
+import { TextField } from "@mui/material"
 import { useSelector } from "react-redux"
 import { selectSituation } from "@/app/features/situations/situationsSlice"
 import { selectHazards } from "@/app/features/hazards/hazardsSlice"
@@ -19,51 +20,115 @@ export default function PageFour() {
    return (
       <Container>
          <Box>
-            <Typography variant="h2">
+            <Typography variant="h2" fontWeight='bold' marginTop={2} marginBottom={1}>
                Situtation/Task
             </Typography>
-            <Box marginLeft={1}>
-               <ul>
-                  {situation.map((task) => {
-                     return <li>{task}</li>
-                  })}
-               </ul>
+            <Box marginLeft={2}>
+               {situation.map((task) => {
+                  return (
+                     <TextField
+                        label={task}
+                        variant="standard"
+                        fullWidth
+                        sx={{
+                           "& .MuiFormLabel-root":
+                              {
+                                 color: "black",
+                                 fontSize: {
+                                    xs: 14,
+                                    sm: 16
+                                 }
+                              },
+                           paddingRight: 1,
+                           marginBottom: 1
+                        }}
+                     />
+                  )
+               })}
             </Box>
          </Box>
          <Box>
-            <Typography variant="h2">
+            <Typography variant="h2" fontWeight='bold' marginTop={2} marginBottom={1}>
                Hazards
             </Typography>
-            <Box marginLeft={1}>
-               <ul>
-                  {hazards.map((hazard) => {
-                     return <li>{hazard}</li>
-                  })}
-               </ul>
+            <Box marginLeft={2}>
+               {hazards.map((hazard) => {
+                  return (
+                     <TextField
+                        label={hazard}
+                        variant="standard"
+                        fullWidth
+                        sx={{
+                           "& .MuiFormLabel-root":
+                              {
+                                 color: "black",
+                                 fontSize: {
+                                    xs: 14,
+                                    sm: 16
+                                 }
+                              },
+                           paddingRight: 1,
+                           marginBottom: 1
+                        }}
+                     />
+                  )
+               })}
             </Box>
          </Box>
          <Box>
-            <Typography variant="h2">
+            <Typography variant="h2" fontWeight='bold' marginTop={2} marginBottom={1}>
                Hazard Controls
             </Typography>
-            <Box marginLeft={1}>
-               <ul>
-                  {controls.map((control) => {
-                     return <li>{control}</li>
-                  })}
-               </ul>
+            <Box marginLeft={2}>
+               {controls.map((control) => {
+                  return (
+                     <TextField
+                        label={control}
+                        variant="standard"
+                        fullWidth
+                        sx={{
+                           "& .MuiFormLabel-root":
+                              {
+                                 color: "black",
+                                 fontSize: {
+                                    xs: 14,
+                                    sm: 16
+                                 }
+                              },
+                           paddingRight: 1,
+                           marginBottom: 1
+                        }}
+                     />
+                  )
+               })}
             </Box>
          </Box>
          <Box>
-            <Typography variant="h2">
+            <Typography variant="h2" fontWeight='bold' marginTop={2} marginBottom={1}>
                PPE
             </Typography>
-            <Box marginLeft={1}>
-               <ul>
-                  {ppe.map((item) => {
-                     return <li>{item}</li>
-                  })}
-               </ul>
+            <Box marginLeft={2}>
+               {ppe.map((item) => {
+                  return (
+                     <TextField
+                        label={item}
+                        variant="standard"
+                        fullWidth
+                        sx={{
+                           "& .MuiFormLabel-root":
+                              {
+                                 color: "black",
+                                 fontSize: {
+                                    xs: 14,
+                                    sm: 16
+                                 }
+                              },
+                           paddingRight: 1,
+                           marginBottom: 1
+                        }}
+                     />
+                  )
+               })}
             </Box>
          </Box>
          <Box
