@@ -136,7 +136,7 @@ export default function PageFour() {
             justifyContent="space-evenly"
          >
             <Button variant="standard">
-               <Link href="/page-three">
+               <Link href="/page-six">
                   Previous
                </Link>
             </Button>

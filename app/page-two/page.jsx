@@ -1,6 +1,6 @@
 "use client"
-import SectionAOptions from "../../components/SectionAOptions"
-import SectionBOptions from "../../components/SectionBOptions"
+import SectionAOptions from "../components/SectionAOptions"
+import SectionBOptions from "../components/SectionBOptions"
 import Button from "@mui/material/Button"
 import Container from "@mui/material/Container"
 import Box from "@mui/material/Box"
@@ -16,7 +16,7 @@ export default function PageTwo() {
             justifyContent="space-evenly"
          >
             <Button variant="standard">
-               <Link href="/page-one">Previous</Link>
+               <Link href="/">Previous</Link>
             </Button>
             <Button variant="standard">
                <Link href="/page-three">Next</Link>
