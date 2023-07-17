@@ -1,6 +1,6 @@
 "use client"
-import SectionAOptions from "../../components/SectionAOptions"
-import SectionBOptions from "../../components/SectionBOptions"
+import SectionAOptions from "../components/SectionAOptions"
+import SectionBOptions from "../components/SectionBOptions"
 import Button from "@mui/material/Button"
 import Container from "@mui/material/Container"
 import Box from "@mui/material/Box"
