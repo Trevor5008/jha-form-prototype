@@ -89,7 +89,7 @@ export default function PageOne() {
                }}
                required
             >
-               <DateTimeInput />
+               <DateTimeInput required/>
             </FormControl>
          </Container>
          {/* 2nd Row | Company Name, Supervisor */}

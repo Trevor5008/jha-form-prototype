@@ -62,6 +62,7 @@ export default function SelectBOptions() {
                            key={idx}
                            option={option}
                            hasLabel={false}
+                           section={0}
                         />
                         {/* Last option exclude reading field */}
                         {idx !== 3 && (

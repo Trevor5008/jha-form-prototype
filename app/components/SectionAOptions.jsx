@@ -49,6 +49,7 @@ export default function SectionAOptions() {
                            key={idx}
                            option={opt}
                            hasLabel={true}
+                           section={0}
                         />
                      )
                   })}

@@ -7,7 +7,14 @@ export default function DateTimeInput() {
       <LocalizationProvider
          dateAdapter={AdapterDayjs}
       >
-         <DateTimePicker label="Date and Time" />
+         <DateTimePicker
+            label="Shift Date and Time"
+            slotProps={{
+               textField: {
+                  required: true
+               }
+            }}
+         />
       </LocalizationProvider>
    )
 }
