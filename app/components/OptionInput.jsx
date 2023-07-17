@@ -1,6 +1,13 @@
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addHazard, removeHazard } from "../features/hazards/hazardsSlice"
+import { addControl, removeControl } from "../features/hazard-controls/hazardControlsSlice"
+import { addPpe, removePpe } from "../features/ppe/ppeSlice"
+import { addSituation, removeSituation } from '../features/situations/situationsSlice'
 import { selectHazards } from '../features/hazards/hazardsSlice'
+import { selectSituation } from '../features/situations/situationsSlice'
+import { selectControls } from '../features/hazard-controls/hazardControlsSlice'
+import { selectPpe } from '../features/ppe/ppeSlice'
 import {
    FormControl,
    FormControlLabel,
@@ -16,15 +23,66 @@ export default function OptionInput({
    hasLabel,
    section
 }) {
-
+   const situation = useSelector(selectSituation)
    const hazards = useSelector(selectHazards)
+   const controls = useSelector(selectControls)
+   const ppe = useSelector(selectPpe)
+
    const dispatch = useDispatch()
+
+   let data;
+   switch (section) {
+      case 1:
+         data = situation
+         break
+      case 2:
+         data = hazards
+         break
+      case 3:
+         data = controls
+         break
+      case 4:
+         data = ppe
+         break
+      default:
+         data = null
+   }
+
+   const handlerAdd = (name) => {
+      switch (section) {
+         case 1:
+            return addSituation(name)
+         case 2:
+            return addHazard(name)
+         case 3: 
+            return addControl(name)
+         case 4:
+            return addPpe(name)
+         default: 
+            return
+      }
+   }
+
+   const handlerRemove = (name) => {
+      switch (section) {
+         case 1:
+            return removeSituation(name)
+         case 2:
+            return removeHazard(name)
+         case 3: 
+            return removeControl(name)
+         case 4:
+            return removePpe(name)
+         default: 
+            return
+      }
+   }
 
    const handleChange = (evt) => {
       if (evt.target.value === 'true') {
-         dispatch(addHazard(evt.target.name))
+         dispatch(handlerAdd(evt.target.name))
       } else {
-         dispatch(removeHazard(evt.target.name))
+         dispatch(handlerRemove(evt.target.name))
       }
    }
 
@@ -54,7 +112,7 @@ export default function OptionInput({
             name={`${option}`}
             onChange={handleChange}
             section={section}
-            value={hazards.includes(option) ? true : false}
+            value={data && data.includes(option) ? true : false}
             sx={{
                display: "inline-block",
                marginLeft: 1
