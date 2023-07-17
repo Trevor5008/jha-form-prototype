@@ -16,7 +16,7 @@ export default function PageTwo() {
             justifyContent="space-evenly"
          >
             <Button variant="standard">
-               <Link href="/page-one">Previous</Link>
+               <Link href="/">Previous</Link>
             </Button>
             <Button variant="standard">
                <Link href="/page-three">Next</Link>
