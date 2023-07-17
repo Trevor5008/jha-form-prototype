@@ -1,12 +1,11 @@
 "use client"
-import SectionCOptions from "../../components/SectionCOptions"
+import SectionCOptions from "../components/SectionCOptions"
 import Button from "@mui/material/Button"
 import Container from "@mui/material/Container"
 import Box from "@mui/material/Box"
 import Link from "next/link"
 
 export default function PageThree() {
-   
    return (
       <Container>
          <SectionCOptions />
@@ -20,11 +19,7 @@ export default function PageThree() {
                </Link>
             </Button>
             <Button variant="standard">
-               <Link
-                  href={{
-                     pathname: "/page-four"
-                  }}
-               >
+               <Link href="/page-four">
                   Next
                </Link>
             </Button>
