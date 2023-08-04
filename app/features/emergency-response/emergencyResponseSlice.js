@@ -12,10 +12,6 @@ export const emergencyResponseSlice = createSlice({
         addResponse: (state, action) => {
             const { key, value } = action.payload
             state[key] = value
-        },
-        removeResponse: (state, action) => {
-            const removeIdx = state.indexOf(action.payload)
-            state.splice(removeIdx, 1)
         }
     }
 })
