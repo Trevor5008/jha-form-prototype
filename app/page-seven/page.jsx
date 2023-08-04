@@ -140,22 +140,10 @@ export default function PageFour() {
                   Previous
                </Link>
             </Button>
-         </Box>
-         <Box
-            display="flex"
-            justifyContent="center"
-            paddingY={1}
-         >
-            <Button
-               variant="outlined"
-               type="submit"
-               sx={{
-                  width: "100%",
-                  color: "black",
-                  borderColor: "black"
-               }}
-            >
-               Submit
+            <Button variant="standard">
+               <Link href="/page-eight">
+                  Next
+               </Link>
             </Button>
          </Box>
       </Container>

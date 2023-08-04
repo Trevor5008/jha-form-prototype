@@ -6,18 +6,9 @@ import Typography from "@mui/material/Typography"
 import Link from "next/link"
 import OptionInput from "../components/OptionInput"
 import { TextField } from "@mui/material"
-import { useSelector } from "react-redux"
-import { selectSituation } from "@/app/features/situations/situationsSlice"
-import { selectHazards } from "@/app/features/hazards/hazardsSlice"
-import { selectControls } from "@/app/features/hazard-controls/hazardControlsSlice"
-import { selectPpe } from "@/app/features/ppe/ppeSlice"
 import { properPpe } from "@/lib/options"
 
 export default function PageFour() {
-   const hazards = useSelector(selectHazards)
-   const controls = useSelector(selectControls)
-   const ppe = useSelector(selectPpe)
-   const situation = useSelector(selectSituation)
 
    return (
       <Container>
