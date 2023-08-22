@@ -1,40 +1,57 @@
 "use client"
+import { useState } from "react"
 import {
    Container,
    Box,
    Button,
    Typography,
-   TextField
+   TextField,
+   InputAdornment
 } from "@mui/material"
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline"
-import InputAdornment from "@mui/material/InputAdornment"
 import Link from "next/link"
 import { hazards } from "@/lib/options"
 import OptionInput from "../components/OptionInput"
-import { useState } from "react"
 
-export default function PageThree() {
-   const [otherInputFlds, setOtherInputFlds] =
-      useState([{ id: 1, value: "" }])
-   const [
-      otherInputCounter,
-      setOtherInputCounter
-   ] = useState(1)
+export default function PageFour() {
+   // "other work" fields
    const [otherWorkFlds, setOtherWorkFlds] =
-      useState([{ id: 1, value: "" }])
+      useState([
+         { id: "Other Trades 1", value: "" }
+      ])
    const [otherWorkCounter, setOtherWorkCounter] =
       useState(1)
 
-   const handleAddOtherWorkFlds = () => {
-      const newId = otherWorkCounter + 1
-      setOtherWorkCounter(newId)
-      setOtherWorkFlds([
-         ...otherWorkFlds,
-         { id: newId, value: "" }
+   // "other hazards" fields
+   const [otherHazardFlds, setOtherHazardFlds] =
+      useState([
+         { id: "Other Hazards 1", value: "" }
       ])
+   const [
+      otherHazardCounter,
+      setOtherHazardCounter
+   ] = useState(1)
+
+   // Adds new "other work" field
+   const handleAddOtherWorkFld = () => {
+      const allValues = otherWorkFlds.every(
+         (el) => el.value !== ""
+      )
+      if (allValues) {
+         const counter = otherWorkCounter + 1
+         setOtherWorkCounter(counter)
+         setOtherWorkFlds([
+            ...otherWorkFlds,
+            {
+               id: `Other Trades ${counter}`,
+               value: ""
+            }
+         ])
+      }
    }
 
-   const handleRemoveOtherWorkFlds = (id) => {
+   // Removes "other work" field by id
+   const handleRemoveOtherWorkFld = (id) => {
       const updatedOtherWorkFlds =
          otherWorkFlds.filter(
             (field) => field.id !== id
@@ -42,21 +59,56 @@ export default function PageThree() {
       setOtherWorkFlds(updatedOtherWorkFlds)
    }
 
-   const handleAddOtherFields = () => {
-      const newId = otherInputCounter + 1
-      setOtherInputCounter(newId)
-      setOtherInputFlds([
-         ...otherInputFlds,
-         { id: newId, value: "" }
-      ])
+   // Adds "other work" value to assc. id
+   const addOtherWork = (evt, id) => {
+      const updatedOtherWork = otherWorkFlds.map(
+         (el) => {
+            if (el.id === id) {
+               el.value = evt.target.value
+            }
+            return el
+         }
+      )
+      setOtherWorkFlds(updatedOtherWork)
    }
 
-   const handleRemoveOtherFields = (id) => {
-      const updatedOtherInputFlds =
-         otherInputFlds.filter(
-            (field) => field.id !== id
+   // Adds new "other hazard" field
+   const handleAddOtherHazardFld = () => {
+      const allValues = otherHazardFlds.every(
+         (el) => el.value !== ""
+      )
+      if (allValues) {
+         const counter = otherHazardCounter + 1
+         setOtherHazardFlds([
+            ...otherHazardFlds,
+            {
+               id: `Other Hazards ${counter}`,
+               value: ""
+            }
+         ])
+         setOtherHazardCounter(counter)
+      }
+   }
+
+   // Removes "other hazard" field by id
+   const handleRemoveOtherHazardFld = (id) => {
+      const updateOtherHazardFlds =
+         otherHazardFlds.filter(
+            (obj) => obj.id !== id
          )
-      setOtherInputFlds(updatedOtherInputFlds)
+      setOtherHazardFlds(updateOtherHazardFlds)
+   }
+
+   // Adds "other hazard" value to assc. id
+   const addOtherHazard = (evt, id) => {
+      const updatedOtherHazards =
+         otherHazardFlds.map((el) => {
+            if (el.id === id) {
+               el.value = evt.target.value
+            }
+            return el
+         })
+      setOtherHazardFlds(updatedOtherHazards)
    }
 
    return (
@@ -89,19 +141,27 @@ export default function PageThree() {
                   />
                )
             })}
+            {/* Other Trades in Work Area */}
             {otherWorkFlds.map((el) => {
                return (
                   <TextField
-                     label="Work of Others"
+                     label="Other Trades in Work Area"
                      variant="standard"
-                     id={`Work of Others ${el.id}`}
-                     key={`Work of Others ${el.id}`}
+                     id={el.id}
+                     key={el.id}
+                     onChange={(evt) =>
+                        addOtherWork(evt, el.id)
+                     }
                      InputProps={{
                         endAdornment: (
                            <InputAdornment position="end">
                               <DeleteOutlineIcon
+                                 style={{
+                                    cursor:
+                                       "pointer"
+                                 }}
                                  onClick={() =>
-                                    handleRemoveOtherWorkFlds(
+                                    handleRemoveOtherWorkFld(
                                        el.id
                                     )
                                  }
@@ -121,6 +181,9 @@ export default function PageThree() {
                               sm: 16
                            }
                         },
+                        "& .MuiInputBase-input": {
+                           paddingLeft: 1
+                        },
                         paddingRight: 1,
                         width: "100%",
                         marginBottom: 2
@@ -131,23 +194,31 @@ export default function PageThree() {
                )
             })}
             <Button
-               onClick={handleAddOtherWorkFlds}
+               onClick={handleAddOtherWorkFld}
             >
                Add Work
             </Button>
-            {otherInputFlds.map((el) => {
+            {/* Other Hazards */}
+            {otherHazardFlds.map((el) => {
                return (
                   <TextField
-                     label="Other Hazard"
+                     label="Other Hazards"
                      variant="standard"
-                     id={`Other Hazard ${el.id}`}
-                     key={`Other Hazard ${el.id}`}
+                     id={el.id}
+                     key={el.id}
+                     onChange={(evt) =>
+                        addOtherHazard(evt, el.id)
+                     }
                      InputProps={{
                         endAdornment: (
                            <InputAdornment position="end">
                               <DeleteOutlineIcon
+                                 style={{
+                                    cursor:
+                                       "pointer"
+                                 }}
                                  onClick={() =>
-                                    handleRemoveOtherFields(
+                                    handleRemoveOtherHazardFld(
                                        el.id
                                     )
                                  }
@@ -167,6 +238,9 @@ export default function PageThree() {
                               sm: 16
                            }
                         },
+                        "& .MuiInputBase-input": {
+                           paddingLeft: 1
+                        },
                         paddingRight: 1,
                         width: "100%",
                         marginBottom: 2
@@ -177,7 +251,7 @@ export default function PageThree() {
                )
             })}
             <Button
-               onClick={handleAddOtherFields}
+               onClick={handleAddOtherHazardFld}
             >
                Add Hazard
             </Button>

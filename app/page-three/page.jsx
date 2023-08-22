@@ -7,10 +7,7 @@ import {
    TextField
 } from "@mui/material"
 import Link from "next/link"
-import {
-   situationElements,
-   hazards
-} from "@/lib/options"
+import { situationElements } from "@/lib/options"
 import OptionInput from "../components/OptionInput"
 
 export default function PageThree() {

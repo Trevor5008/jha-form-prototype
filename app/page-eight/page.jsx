@@ -54,7 +54,7 @@ export default function PageFour() {
                })}
                <Typography variant="h3" marginTop={2}>Report Emergencies To?</Typography>
                <TextField
-                  label="Name & Number"
+                  label="Name & Mobile Number (SSR1)"
                   variant="standard"
                   fullWidth
                   sx={{
@@ -73,7 +73,26 @@ export default function PageFour() {
                   }}
                />
                <TextField
-                  label="Name & Number"
+                  label="Name & Mobile Number (Superintendant/Foreman)"
+                  variant="standard"
+                  fullWidth
+                  sx={{
+                     "& .MuiFormLabel-root":
+                        {
+                           color: "black",
+                           paddingLeft: 2,
+                           fontSize: {
+                              xs: 14,
+                              sm: 16
+                           }
+                        },
+                     paddingRight: 1,
+                     paddingLeft: 2,
+                     marginBottom: 1
+                  }}
+               />
+               <TextField
+                  label="Name & Mobile Number (Project Safety Coordinator)"
                   variant="standard"
                   fullWidth
                   sx={{
